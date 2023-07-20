@@ -1,11 +1,35 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div id = "app">
+    <HeaderCom />
+    <JumbotronL />
+    <CheckPt @picture-taken="imageSrc=$envent" />
+    <FooterA />
+    <img :src="imageSrc" />
+  </div>
 </template>
 
+<script>
+// @ is an alias to /src
+import HeaderCom from "./components/Headercom.vue";
+import JumbotronL from "./components/JumbotronL.vue";
+import CheckPt from "./components/CheckPt.vue";
+import FooterA from "./components/FooterA.vue";
+
+export default {
+  name: 'App',
+  components: {
+    HeaderCom,
+    JumbotronL,
+    CheckPt,
+    FooterA,
+  },
+  data(){
+    return{
+      ImageSrc: null
+    }
+  }
+}
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -13,18 +37,5 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
 }
 </style>
