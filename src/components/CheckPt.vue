@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="row gx-5">
     <div class="col">
   <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
@@ -50,7 +50,7 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped>
   .checkRadio{
     margin: 5 0;
@@ -61,4 +61,4 @@ export default {
     margin-left: 40%;
   }
 
-</style>
+</style> -->

@@ -2,9 +2,8 @@
   <div id = "app">
     <HeaderCom />
     <JumbotronL />
-    <CheckPt @picture-taken="imageSrc=$envent" />
     <FooterA />
-    <img :src="imageSrc" />
+
   </div>
 </template>
 
@@ -12,7 +11,6 @@
 // @ is an alias to /src
 import HeaderCom from "./components/Headercom.vue";
 import JumbotronL from "./components/JumbotronL.vue";
-import CheckPt from "./components/CheckPt.vue";
 import FooterA from "./components/FooterA.vue";
 
 export default {
@@ -20,12 +18,11 @@ export default {
   components: {
     HeaderCom,
     JumbotronL,
-    CheckPt,
     FooterA,
   },
   data(){
     return{
-      ImageSrc: null
+
     }
   }
 }

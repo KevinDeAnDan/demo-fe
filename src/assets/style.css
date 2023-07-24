@@ -1,3 +1,39 @@
-.navbarH{
-    color: #0f3c75;
+/* Header */
+
+.header__wapper {
+    background-color: rgb(78, 78, 194);
+    height: 10rem;
 }
+
+
+/*Body */
+.icon-chat{
+    height: 25px; 
+    display:block; 
+    margin-left: auto
+}
+.icon-img{
+    width: 35px; 
+    height: 35px
+}
+.textSum {
+  white-space: nowrap;
+  overflow: hidden;
+ text-overflow: ellipsis;
+}
+
+.camera-box{
+    height: 300px; 
+    margin-top: 20px
+}
+.camera-box-icon{
+    display: flex; justify-content: start
+}
+.cam-button{
+    margin-left: 40%; 
+    background-color: white; 
+    border: 0px
+}
+
+
+/* Footer */
