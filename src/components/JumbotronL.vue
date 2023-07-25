@@ -3,7 +3,7 @@
     <div v-for="(g, index) in gets" v-bind:key="index">
       <div
         class="d-flex justify-content-between align-items-center p-2 m-2 rounded-2 slide-down"
-        :class="{ active: activeIndex === index }"
+        :class="{ activeRed: activeIndex === index && activeRadio[index] === 0, activeBlue: activeIndex === index && activeRadio[index] !== 0}"
         type="button"
         data-bs-toggle="collapse"
         aria-expanded="false"
@@ -21,9 +21,9 @@
         />
       </div>
       <div :class="['collapse', { show: expandedIndex === g.index }]">
-        <div v-for="(p, index) in selectRadios" :key="index">
-          <input type="radio" id="p.name" name="fav_language" value="p.name" />
-          <label @change="changeColor(p.index)" for="p.name">{{
+        <div v-for="(p, pIndex) in selectRadios" :key="pIndex">
+          <input type="radio" :id="'radio-' + index + '-' + pIndex" name="fav_language" value="p.name" :checked="activeRadio[index] === pIndex" @change="handleRadioChange(index, pIndex)"/>
+          <label :for="'radio-' + index + '-' + pIndex" @change="changeColor(p.index)" >{{
             p.name
           }}</label>
         </div>
@@ -105,16 +105,15 @@ export default {
       canvasHeight: 300,
       canvasWidth: 250,
       activeIndex: -1,
+      activeRadio: [],
       selectRadios: [
         {
           id: 1,
           name: "OK",
-          color: "red",
         },
         {
           id: 2,
           name: "NOK",
-          color: "blue",
         },
       ],
       gets: [],
@@ -129,8 +128,9 @@ export default {
         this.expandedIndex = index;
       }
     },
-    changeColor(index) {
-      this.activeIndex = index;
+    handleRadioChange(parentIndex, radioIndex) {
+      this.activeIndex = parentIndex;
+      this.activeRadio[parentIndex] = radioIndex;
     },
     toggleCamera() {
       if (this.isCameraOpen) {
@@ -238,7 +238,11 @@ export default {
   
   <!-- Add "scoped" attribute to limit CSS to this component only -->
   <style scoped>
-.active {
-  background-color: rgb(56, 147, 177);
+.activeRed {
+  background-color: rgb(197, 59, 0);
+}
+
+.activeBlue {
+  background-color: rgb(28, 93, 234);
 }
 </style>
